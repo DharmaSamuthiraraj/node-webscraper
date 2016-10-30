@@ -3,7 +3,7 @@ var request = require('request');
 var cheerio = require('cheerio');
 
 var app = express();
-var port = process.env.port || 3000;
+var port = process.env.PORT || 3000;
 
 
 app.get('/scrape', function(req, res, next){
