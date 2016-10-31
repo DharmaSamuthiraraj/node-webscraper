@@ -1,0 +1,38 @@
+
+.main-container {
+	width: 40%;
+	height: 100px;
+	margin: 10px 10px;	
+	background-color: #eee;
+	padding: 5px 10px;
+	border: 1px solid #ccc;
+}
+
+.button1 {
+	padding: 5px 10px;
+	text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;   
+    margin-left: 10px;   
+    cursor: pointer;
+}
+
+.content {
+	font-family: "Arial";
+	font-size: 16px;
+	width: 90%;
+	margin: 20px auto;
+}
+
+input[type="text"] {
+  padding: 10px;
+  border: solid 1px #dcdcdc;
+  transition: box-shadow 0.3s, border 0.3s;
+  width: 320px;
+}
+
+.loader {
+	margin: 100px 100px;
+	height: 100%;
+}

@@ -1,0 +1,32 @@
+{
+  "name": "node-webscraper",
+  "version": "0.0.1",
+  "homepage": "https://github.com/DharmaSamuthiraraj/node-webscraper",
+  "authors": [
+    "Dharma Samuthiraraj <dharma.samuthiraraj@gmail.com>"
+  ],
+  "description": "Web scraper",
+  "main": "app.js",
+  "moduleType": [
+    "node"
+  ],
+  "keywords": [
+    "scraper",
+    "web",
+    "scraper",
+    "node",
+    "scrape"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "1.5.8",
+    "angular-route": "~1.5.8"
+  }
+}
