@@ -10,9 +10,9 @@
 </head>
 
 <body>
-	<div class="main-container" ng-controller="scrapeController">
-		<h3><%= title %></h3>
-		<div>
+	<div class="main-container" ng-controller="scrapeController">		
+		<div class="input-panel">
+			<h3><%= title %></h3>
 			<label>URL:</label> <input type='text' name='url' ng-model="targetUrl">
 			<input type="button" class="button1" value="Submit" ng-click="scrapeUrl(targetUrl)">
 			<input type="button" class="button1" value="Clear" ng-click="clearInput(targetUrl)">		
