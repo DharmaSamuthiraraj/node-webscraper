@@ -24,17 +24,30 @@ app.service('scrapeService', ['$q', '$http',
 app.controller('scrapeController', ['$scope', 'scrapeService',
 	function($scope, scrapeService) {
 
-		$scope.targetUrl= '';	
+		$scope.targetUrl = '';	
+
 		$scope.submitClicked = false;
+		$scope.jsonOutput = false;
 
-		$scope.scrapeUrl = function(url) {		
-			$scope.output = '';
+		$scope.scrapeUrl = function(url) {
+			$scope.output = '';		
+			$scope.errorMsg = ''		
+			if(url == '') {
+				$scope.errorMsg = 'URL is required.'				
+				return;
+			}	
 			$scope.outputReady = false;
-			$scope.submitClicked = true;
-
+			$scope.submitClicked = true;		
 			scrapeService.getContent(url)
-							.then(function(response) {
-								$scope.output = parseHTML(response);
+							.then(function(response) {		
+								if(_.isObject(response) && !_.isEmpty(response)) {
+									$scope.jsonOutput = true;									
+									$scope.output = JSON.stringify(response, null, 4);									
+								} 
+								else {
+									$scope.jsonOutput = false;											    							
+									$scope.output = parseHTML(response);
+								}
 								$scope.outputReady = true;
 								$scope.submitClicked = false;
 							},

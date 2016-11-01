@@ -3,7 +3,8 @@
 <head>
 	<title><%= title %></title>
 	<script type="text/javascript" src="components/angular/angular.min.js"></script>
-	<script type="text/javascript" src="components/angular-route/angular-route.min.js"></script>	
+	<script type="text/javascript" src="components/angular-route/angular-route.min.js"></script>
+	<script type="text/javascript" src="components/underscore/underscore-min.js"></script>		
 	<script type="text/javascript" src="js/lib/jquery.js"></script>	
 	<script type="text/javascript" src="app/scrape/scrapeController.js"></script>	
 	<link rel="stylesheet" type="text/css" href="css/style.css">
@@ -12,13 +13,17 @@
 <body>
 	<div class="main-container" ng-controller="scrapeController">		
 		<div class="input-panel">
-			<h3><%= title %></h3>
+			<h3><%= subtitle %></h3>
 			<label>URL:</label> <input type='text' name='url' ng-model="targetUrl">
 			<input type="button" class="button1" value="Submit" ng-click="scrapeUrl(targetUrl)">
-			<input type="button" class="button1" value="Clear" ng-click="clearInput(targetUrl)">		
+			<input type="button" class="button1" value="Clear" ng-click="clearInput()">		
+		</div>
+		<div ng-if="errorMsg !=''">
+			<p class="error-msg" ng-bind="errorMsg"></p>
 		</div>
 		<div ng-show="outputReady" class="content">
-			<p ng-bind-html="output | toTrustedHTML"> </p>
+			<p ng-if="!jsonOutput" ng-bind-html="output | toTrustedHTML"> </p>			
+			<pre ng-if="jsonOutput" ng-bind="output"> </pre>
 		</div>
 		<div ng-show="submitClicked" class="loader">
 			<img src="images/ajax-loader.gif" alt="ajax loader">
